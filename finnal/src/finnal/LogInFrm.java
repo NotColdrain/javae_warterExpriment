@@ -33,7 +33,6 @@ public class LogInFrm extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 */
