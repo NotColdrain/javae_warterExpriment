@@ -1,10 +1,10 @@
 package finnal;
 
 public class Book {
-	String Name;//ÊéÃû
-	int Surplus;//Ê£ÓàÁ¿£¨ÔÚ¹İ±¾Êı£©
-	String ISBN;//ÊéºÃ
-	String Writer_Name;//×÷ÕßÃû
+	String Name;//ä¹¦å
+	int Surplus;//å‰©ä½™é‡ï¼ˆåœ¨é¦†æœ¬æ•°ï¼‰
+	String ISBN;//ä¹¦å¥½
+	String Writer_Name;//ä½œè€…å
 	Book(){
 		this.ISBN="no ISBN";
 		this.Name="no name";

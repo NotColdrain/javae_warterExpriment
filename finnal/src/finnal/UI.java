@@ -19,22 +19,22 @@ public class UI {
 
 	    private static void placeComponents(JPanel panel) {
 	        panel.setLayout(null);
-	        JLabel welcome=new JLabel("»¶Ó­Ê¹ÓÃ£¬ÇëÊäÈëÑ§ÉúÃûºÍÑ§ÉúºÅ:");
+	        JLabel welcome=new JLabel("æ¬¢è¿ä½¿ç”¨ï¼Œè¯·è¾“å…¥å­¦ç”Ÿåå’Œå­¦ç”Ÿå·:");
 	        panel.add(welcome);	
 	        welcome.setBounds(10,20,200,50);
-	        JLabel userLabel = new JLabel("Ñ§ÉúÃû:");
+	        JLabel userLabel = new JLabel("å­¦ç”Ÿå:");
 	        userLabel.setBounds(10,100,80,25);
 	        panel.add(userLabel);
 	        JTextField userText = new JTextField(20);
 	        userText.setBounds(100,100,165,25);
 	        panel.add(userText);
-	        JLabel passwordLabel = new JLabel("Ñ§ºÅ:");
+	        JLabel passwordLabel = new JLabel("å­¦å·:");
 	        passwordLabel.setBounds(10,150,80,25);
 	        panel.add(passwordLabel);
 	        JPasswordField passwordText = new JPasswordField(20);
 	       passwordText.setBounds(100,150,165,25);
 	        panel.add(passwordText);
-	        JButton loginButton = new JButton("µÇÂ¼");
+	        JButton loginButton = new JButton("ç™»å½•");
 	        loginButton.setBounds(10, 250, 80, 25);
 	        panel.add(loginButton);
 	    }

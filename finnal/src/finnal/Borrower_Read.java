@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Borrower_Read {
-	String File_Name;//初始化文件名
+	String File_Name;//鍒濆鍖栨枃浠跺悕
 	char[] input;
 	String input2;
 	String[] input3;

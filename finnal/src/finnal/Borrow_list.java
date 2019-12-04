@@ -35,7 +35,7 @@ void Return_Book(int Student_Number,String Book_Name)
 		i++;
 		if(i==lenth-1)
 		{
-		System.out.println("½èÊé¼ÇÂ¼²»´æÔÚ");
+		System.out.println("å€Ÿä¹¦è®°å½•ä¸å­˜åœ¨");
 		return;
 		}
 	}

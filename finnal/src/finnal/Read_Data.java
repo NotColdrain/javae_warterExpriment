@@ -2,7 +2,7 @@ package finnal;
 import java.io.*;
 
 public class Read_Data {
-	String File_Name;//初始化文件名
+	String File_Name;//鍒濆鍖栨枃浠跺悕
 	char[] input;
 	String input2;
 	String[] input3;

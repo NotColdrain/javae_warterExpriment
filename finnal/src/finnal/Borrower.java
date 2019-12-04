@@ -1,10 +1,10 @@
 package finnal;
 
 public class Borrower {
-	String Name;//½èÊéÕßĞÕÃû
-	String Sex;//ĞÔ±ğ
-	int Student_Number;//Ñ§ºÅ
-	int Class;//°à¼¶
+	String Name;//å€Ÿä¹¦è€…å§“å
+	String Sex;//æ€§åˆ«
+	int Student_Number;//å­¦å·
+	int Class;//ç­çº§
 	Borrower(){
 		this.Name="no name";
 		this.Student_Number=0;

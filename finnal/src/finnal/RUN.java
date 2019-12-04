@@ -20,7 +20,7 @@ public class RUN {
 			Data[1]=new Book("Java",200,"978-7-5647-0389-9","JCH");
 			Data[2]=new Book("Probability_Theory",150,"978-7-04-046386-6","XQZ");
 			Booknumber=3;
-			System.out.println("Í¼ÊéÊı¾İ²»´æÔÚ£¬ÒÑ¾­³õÊ¼»¯´´½¨ÁËÄ¬ÈÏÊı¾İ");
+			System.out.println("å›¾ä¹¦æ•°æ®ä¸å­˜åœ¨ï¼Œå·²ç»åˆå§‹åŒ–åˆ›å»ºäº†é»˜è®¤æ•°æ®");
 			for(i=0;i<3;i++)
 			{
 				System.out.println("BookNumber:"+i);
@@ -30,7 +30,7 @@ public class RUN {
 		else{
 			Read_Data in=new Read_Data("Books");
 			Booknumber=in.Read_Books(Data);
-			System.out.println("Â¼ÈëÍê±Ï£¬Ò»¹²µ¼ÈëÁË"+Booknumber+"±¾Êé¼®ĞÅÏ¢");
+			System.out.println("å½•å…¥å®Œæ¯•ï¼Œä¸€å…±å¯¼å…¥äº†"+Booknumber+"æœ¬ä¹¦ç±ä¿¡æ¯");
 			for(i=0;i<Booknumber;i++)
 			{
 				Data[i].Print();
@@ -50,12 +50,12 @@ public class RUN {
 			B_Data[1]=new Borrower("Mike","male",20180917,2);
 			B_Data[2]=new Borrower("Ann","female",20180918,1);
 			Borrowernumber=3;
-			System.out.println("½èÊéÕßÊı¾İ²»´æÔÚ£¬ÒÑ¾­³õÊ¼»¯´´½¨ÁËÄ¬ÈÏÊı¾İ");
+			System.out.println("å€Ÿä¹¦è€…æ•°æ®ä¸å­˜åœ¨ï¼Œå·²ç»åˆå§‹åŒ–åˆ›å»ºäº†é»˜è®¤æ•°æ®");
 			}
 		else{
 			Borrower_Read in=new Borrower_Read("Borrower");
 			Borrowernumber=in.Read_Borrower(B_Data);
-			System.out.println("Â¼ÈëÍê±Ï£¬Ò»¹²µ¼ÈëÁË"+Borrowernumber+"¸ö½èÊéÕßĞÅÏ¢");
+			System.out.println("å½•å…¥å®Œæ¯•ï¼Œä¸€å…±å¯¼å…¥äº†"+Borrowernumber+"ä¸ªå€Ÿä¹¦è€…ä¿¡æ¯");
 			for(i=0;i<Borrowernumber;i++)
 			{
 				B_Data[i].Print();
@@ -63,7 +63,7 @@ public class RUN {
 		}
 		while(true)
 		{
-			System.out.println("»¶Ó­Ê¹ÓÃÊé¼®¹ÜÀí½èÔÄÏµÍ³");
+			System.out.println("æ¬¢è¿ä½¿ç”¨ä¹¦ç±ç®¡ç†å€Ÿé˜…ç³»ç»Ÿ");
 			System.out.println("********************************************");
 			System.out.println("");
 			break;
@@ -79,12 +79,12 @@ public class RUN {
 		
 		Save_Data Save=new Save_Data("Books");
 		Save.Save(Data,Booknumber);
-		System.out.println("Êé¼®ĞÅÏ¢±£´æ³É¹¦");
+		System.out.println("ä¹¦ç±ä¿¡æ¯ä¿å­˜æˆåŠŸ");
 		
 		
 		Borrower_Save B_Save=new Borrower_Save("Borrower");
 		B_Save.Save(B_Data, Borrowernumber);
-		System.out.println("½èÊéÕß±£´æ³É¹¦");
+		System.out.println("å€Ÿä¹¦è€…ä¿å­˜æˆåŠŸ");
 		
 		
 		new UI();
