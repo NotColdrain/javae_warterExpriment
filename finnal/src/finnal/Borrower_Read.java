@@ -3,25 +3,27 @@ package finnal;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Borrower_Read {
 	String File_Name;//初始化文件名
 	char[] input;
 	String input2;
 	String[] input3;
-	Borrower_Read(String File_Name)
+	public Borrower_Read(String File_Name)
 	{
 		this.File_Name=File_Name; 
 	}
-	int Read_Borrower(Borrower Borrower_Data[])
+	public List<Borrower> Read_Borrower()
 	{
-		int i;
+		List<Borrower> Bor = new ArrayList<>();
 		try {
-		this.input=new char[100000];
-		File input=new File(File_Name);
-		FileReader reader=new FileReader(input);
-		reader.read(this.input);
-		reader.close();
+			this.input=new char[100000];
+			File input=new File(File_Name);
+			FileReader reader=new FileReader(input);
+			reader.read(this.input);
+			reader.close();
 		}
 		catch(IOException a)
 		{
@@ -29,19 +31,18 @@ public class Borrower_Read {
 		}
 		this.input2=new String(this.input);
 		this.input3=this.input2.split("\n");
-		for(i=0;i<input3.length;i++)
+		for(int i=0;i<input3.length;i++)
 		{
 			input3[i]=input3[i].substring(0,input3[i].length()-1);
 		}
-		int number=Integer.valueOf(this.input3[0]);
-		for(i=0;i<number;i++)
+		for(int i=0;i<this.input3.length/4;i++)
 		{
-			Borrower_Data[i]=new Borrower();
-			Borrower_Data[i].Name=this.input3[4*i+1];
-			Borrower_Data[i].Sex=this.input3[4*i+2];
-			Borrower_Data[i].Student_Number=Integer.parseInt(this.input3[4*i+3]);
-			Borrower_Data[i].Class=Integer.parseInt(this.input3[4*i+4]);
+			Borrower temp=new Borrower(this.input3[4*i],
+					this.input3[4*i+1],
+					Integer.parseInt(this.input3[4*i+2]),
+					Integer.parseInt(this.input3[4*i+3]));
+			Bor.add(temp);
 		}
-		return number;
+		return Bor;
 	}
 }

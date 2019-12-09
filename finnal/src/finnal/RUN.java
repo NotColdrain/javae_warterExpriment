@@ -1,11 +1,13 @@
 package finnal;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RUN {
 
 	public static void main(String[] args) {
 		int i,j;
-		int Booknumber,Borrowernumber;
+		int Booknumber;
 		Book Data[]=new Book[1000];
 		Borrower B_Data[]=new Borrower[1000];
 		
@@ -42,24 +44,19 @@ public class RUN {
 		
 		
 		
-		Borrower Borrower_Data[]=new Borrower[1000];
+		List<Borrower> Borrower_Data = new ArrayList<>();
 		File Borrower_data=new File("Borrower");
 		if(!Borrower_data.exists())
 			{
 			B_Data[0]=new Borrower("John","male",20180916,1);
 			B_Data[1]=new Borrower("Mike","male",20180917,2);
 			B_Data[2]=new Borrower("Ann","female",20180918,1);
-			Borrowernumber=3;
 			System.out.println("借书者数据不存在，已经初始化创建了默认数据");
 			}
 		else{
 			Borrower_Read in=new Borrower_Read("Borrower");
-			Borrowernumber=in.Read_Borrower(B_Data);
-			System.out.println("录入完毕，一共导入了"+Borrowernumber+"个借书者信息");
-			for(i=0;i<Borrowernumber;i++)
-			{
-				B_Data[i].Print();
-			}
+			Borrower_Data=in.Read_Borrower();
+			System.out.println("录入完毕，一共导入了"+Borrower_Data.size()+"个借书者信息");
 		}
 		while(true)
 		{
@@ -83,7 +80,7 @@ public class RUN {
 		
 		
 		Borrower_Save B_Save=new Borrower_Save("Borrower");
-		B_Save.Save(B_Data, Borrowernumber);
+		B_Save.Save(Borrower_Data);
 		System.out.println("借书者保存成功");
 		
 		

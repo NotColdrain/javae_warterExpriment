@@ -33,11 +33,10 @@ public class Read_Data {
 	int number=Integer.valueOf(this.input3[0]);
 	for(i=0;i<number;i++)
 	{
-		Book_Data[i]=new Book();
-		Book_Data[i].Name=this.input3[4*i+1];
-		Book_Data[i].Surplus=Integer.parseInt(this.input3[4*i+2]);
-		Book_Data[i].ISBN=this.input3[4*i+3];
-		Book_Data[i].Writer_Name=this.input3[4*i+4];
+		Book_Data[i]=new Book(this.input3[4*i+1],
+				Integer.parseInt(this.input3[4*i+2]),
+				this.input3[4*i+3],
+				this.input3[4*i+4]);
 	}
 	return number;
 	}
