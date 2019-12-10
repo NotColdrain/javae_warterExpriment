@@ -114,6 +114,15 @@ public class LogInFrm extends JFrame {
 		JButton LogInBtn = new JButton("登录");
 		LogInBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(UserNumField.getText().trim().equals("") ||
+					UserNameField.getText().trim().equals("")){
+					JLabel label = new JLabel("用户名或学号不能为空！");
+					label.setForeground(Color.RED);
+					label.setFont(new Font("幼圆", Font.BOLD, 16));
+					UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("幼圆", Font.BOLD, 15)));
+					JOptionPane.showMessageDialog(null, label);
+					return;
+				}
 				Borrower_Login login = new Borrower_Login();
 				Borrower u = new Borrower();
 				u.setName(UserNameField.getText().trim());
