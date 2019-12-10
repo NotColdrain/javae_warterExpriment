@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -11,12 +11,9 @@ import javax.swing.plaf.FontUIResource;
 
 import finnal.Borrower;
 import finnal.Borrower_Login;
-import finnal.Borrower_Read;
 import finnal.Borrower_Save;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.UIManager;

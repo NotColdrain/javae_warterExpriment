@@ -1,36 +1,36 @@
 package finnal;
 import java.io.*;
+import java.util.List;
 
 public class Save_Data {
 	String File_Name;
-	Save_Data(String File_Name)
+	public Save_Data(String File_Name)
 	{
 		this.File_Name=File_Name; 
 	}
-	void Save(Book[] Data,int number)
+	public boolean Save(List<Book> Data)
 	{
-		int i;
 		File Save=new File(this.File_Name);
 		try {
-		FileWriter Writer=new FileWriter(Save);
-		Writer.write(String.valueOf(number));
-		Writer.write("\r\n"); 
-		for(i=0;i<number;i++)
-		{
-			Writer.write(Data[i].Name);
-			Writer.write("\r\n"); 
-			Writer.write(String.valueOf(Data[i].Surplus));
-			Writer.write("\r\n"); 
-			Writer.write(Data[i].ISBN);
-			Writer.write("\r\n"); 
-			Writer.write(Data[i].Writer_Name);
-			Writer.write("\r\n"); 
-		}
-		Writer.close();
+			FileWriter Writer=new FileWriter(Save);
+			for(int i=0;i<Data.size();i++)
+			{
+				Writer.write(Data.get(i).getName());
+				Writer.write("\r\n"); 
+				Writer.write(String.valueOf(Data.get(i).getSurplus()));
+				Writer.write("\r\n"); 
+				Writer.write(Data.get(i).getISBN());
+				Writer.write("\r\n"); 
+				Writer.write(Data.get(i).getWriter_Name());
+				Writer.write("\r\n"); 
+			}
+			Writer.close();
+			return true;
 		}
 		catch(IOException a)
 		{
 			a.printStackTrace();
+			return false;
 		}
 	}
 }
