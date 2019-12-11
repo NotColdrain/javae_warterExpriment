@@ -30,6 +30,10 @@ import java.awt.Toolkit;
 
 public class LogInFrm extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 001;
 	private JPanel contentPane;
 	private JTextField UserNameField;
 	private JTextField UserNumField;
