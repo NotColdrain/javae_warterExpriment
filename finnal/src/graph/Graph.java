@@ -1,3 +1,5 @@
+package graph;
+
 import java.io.IOException;
 //方法可以调用graph程序生成 "班级-借阅图书" 图表
 class Graph{

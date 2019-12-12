@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.FontUIResource;
 
 import finnal.Borrower;
+import finnal.Manager;
 
 import java.awt.Toolkit;
 import javax.swing.JMenuBar;
@@ -40,7 +41,7 @@ public class MainFrm extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Borrower u = null;
+					Manager u = null;
 					MainFrm frame = new MainFrm(u);
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -53,12 +54,12 @@ public class MainFrm extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MainFrm(Borrower u) {
+	public MainFrm(Manager u) {
 		setResizable(false);
 		setTitle("图书借阅系统	" + 
 				version 
-				//+ "   你好! " 
-				//+ u.getName()
+				+ "   你好! (｡•ˇ‸ˇ•｡) —— " 
+				+ u.getManagerName()
 				);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/image/logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

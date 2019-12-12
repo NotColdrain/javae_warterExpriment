@@ -2,7 +2,11 @@ package finnal;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 暂时作废
+ * @author LoveBeforT
+ *
+ */
 public class Borrower_Login {
 	public Borrower LogIn(Borrower u) {
 		List<Borrower> Borrower_Data = new ArrayList<>();

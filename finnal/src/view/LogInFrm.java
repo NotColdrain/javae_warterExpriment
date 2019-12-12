@@ -6,12 +6,15 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.FontUIResource;
 
 import finnal.Borrower;
 import finnal.Borrower_Login;
 import finnal.Borrower_Save;
+import finnal.Manager;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
@@ -23,6 +26,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -36,7 +40,7 @@ public class LogInFrm extends JFrame {
 	private static final long serialVersionUID = 001;
 	private JPanel contentPane;
 	private JTextField UserNameField;
-	private JTextField UserNumField;
+	private JPasswordField UserNumField;
 
 	/**
 	 * Launch the application.
@@ -91,13 +95,13 @@ public class LogInFrm extends JFrame {
 		lblNewLabel.setBounds(135, 13, 227, 43);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("学生名:");
+		JLabel lblNewLabel_1 = new JLabel("用户名:");
 		lblNewLabel_1.setIcon(new ImageIcon(LogInFrm.class.getResource("/image/userName.png")));
 		lblNewLabel_1.setFont(new Font("微软雅黑", Font.BOLD, 18));
 		lblNewLabel_1.setBounds(69, 109, 83, 27);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("学号 ：");
+		JLabel lblNewLabel_2 = new JLabel("密码 ：");
 		lblNewLabel_2.setIcon(new ImageIcon(LogInFrm.class.getResource("/image/password.png")));
 		lblNewLabel_2.setFont(new Font("微软雅黑", Font.BOLD, 18));
 		lblNewLabel_2.setBounds(69, 185, 83, 33);
@@ -109,7 +113,7 @@ public class LogInFrm extends JFrame {
 		contentPane.add(UserNameField);
 		UserNameField.setColumns(10);
 		
-		UserNumField = new JTextField();
+		UserNumField = new JPasswordField();
 		UserNumField.setFont(new Font("微软雅黑", Font.PLAIN, 18));
 		UserNumField.setBounds(167, 185, 193, 33);
 		contentPane.add(UserNumField);
@@ -118,7 +122,7 @@ public class LogInFrm extends JFrame {
 		JButton LogInBtn = new JButton("登录");
 		LogInBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(UserNumField.getText().trim().equals("") ||
+				if(UserNumField.getPassword().equals("") ||
 					UserNameField.getText().trim().equals("")){
 					JLabel label = new JLabel("用户名或学号不能为空！");
 					label.setForeground(Color.RED);
@@ -127,11 +131,12 @@ public class LogInFrm extends JFrame {
 					JOptionPane.showMessageDialog(null, label);
 					return;
 				}
-				Borrower_Login login = new Borrower_Login();
-				Borrower u = new Borrower();
-				u.setName(UserNameField.getText().trim());
-				u.setStudent_Number(Integer.parseInt(UserNumField.getText()));
-				u = login.LogIn(u);
+				Manager u = new Manager(UserNameField.getText().trim(),UserNumField.getText().trim());
+				try {
+					u = u.LogIn(u);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 				if(u == null) {
 					JLabel label = new JLabel("登录失败！");
 					label.setForeground(Color.RED);
