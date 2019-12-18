@@ -1,49 +1,96 @@
 package finnal;
-class Borrow{
-	int Student_Number;
-	int Borrow_Time;
-	String Book_Name;
-	Borrow(int Student_number,int Borrow_time,String Book_name)
-	{
-		this.Book_Name=Book_name;
-		this.Borrow_Time=Borrow_time;
-		this.Book_Name=Book_name;
-	}
-}
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 public class Borrow_list {
-Borrow Book_Borrow[];
-int lenth;
-Borrow_list(Borrow list[],int lenth)
-{
-	int i;
-	this.Book_Borrow=new Borrow[1000];
-	this.lenth=lenth;
-	for(i=0;i<lenth;i++) {
-		this.Book_Borrow[i]=list[i];
-	}
-}
-void add(int Student_number,int Borrow_time,String Book_name)
-{
-	this.Book_Borrow[lenth]=new Borrow(Student_number,Borrow_time,Book_name);
-	this.lenth++;
-}
-void Return_Book(int Student_Number,String Book_Name)
-{
-	int i=0;
-	while(!(this.Book_Borrow[i].Book_Name==Book_Name&&this.Book_Borrow[i].Student_Number==Student_Number))
+	private String File_Name = "BorrowList";//初始化文件名
+	private char[] input;
+	private String input2;
+	private String[] input3;
+	int lenth;
+	public List<Borrow> GetBorrowList()
 	{
-		i++;
-		if(i==lenth-1)
-		{
-		System.out.println("借书记录不存在");
-		return;
+		List<Borrow> list = new ArrayList<>();
+		try {
+			this.input=new char[100000];
+			File input=new File(File_Name);
+			FileReader reader=new FileReader(input);
+			reader.read(this.input);
+			reader.close();
 		}
+		catch(IOException a)
+		{
+			a.printStackTrace();
+		}
+		this.input2=new String(this.input);
+		this.input3=this.input2.split("\n");
+		for(int i=0;i<input3.length;i++)
+		{
+			input3[i]=input3[i].substring(0,input3[i].length()-1);
+		}
+		for(int i=0;i<this.input3.length/3;i++)
+		{
+			list.add(new Borrow(Integer.parseInt(this.input3[3*i]),
+					Integer.parseInt(this.input3[3*i+1]),
+					this.input3[3*i+2]));
+		}
+		return list;
 	}
-	while(i<lenth)
+	public List<Borrow> add(List<Borrow> list,Borrow b)
 	{
-		this.Book_Borrow[i]=this.Book_Borrow[i+1];
-		i++;
+		if(!ExistBor(list,b))
+			list.add(b);
+		return list;
 	}
-	lenth--;
-}
+	public List<Borrow> Remove(List<Borrow> list,Borrow b)
+	{
+		for(int i=0;i<list.size();i++) {
+			if(list.get(i).getStudent_Number() == b.getStudent_Number() &&
+					list.get(i).getBook_Name().equals(b.getBook_Name()) &&
+					list.get(i).getBorrow_Time() == b.getBorrow_Time()
+					) {
+				list.remove(i);
+				return list;
+			}
+		}
+		return list;
+	}
+	public boolean WriteList(List<Borrow> list) {
+		File Save=new File(this.File_Name);
+		try {
+		FileWriter Writer=new FileWriter(Save);
+		for(int i=0;i<list.size();i++)
+		{
+			Writer.write(String.valueOf(list.get(i).getStudent_Number()));
+			Writer.write("\r\n"); 
+			Writer.write(String.valueOf(list.get(i).getBorrow_Time()));
+			Writer.write("\r\n"); 
+			Writer.write(list.get(i).getBook_Name());
+			Writer.write("\r\n"); 
+		}
+		Writer.close();
+		}
+		catch(IOException a)
+		{
+			a.printStackTrace();
+		}
+		return true;
+	}
+	public boolean ExistBor(List<Borrow> list, Borrow b) {
+		for(int i=0;i<list.size();i++) {
+			if(list.get(i).getStudent_Number() == b.getStudent_Number() &&
+					list.get(i).getBook_Name().equals(b.getBook_Name()) &&
+					list.get(i).getBorrow_Time() == b.getBorrow_Time()
+					)
+				return true;
+		}
+		return false;
+	}
 }

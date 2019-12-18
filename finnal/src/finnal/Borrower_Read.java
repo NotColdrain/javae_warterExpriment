@@ -15,6 +15,14 @@ public class Borrower_Read {
 	{
 		this.File_Name=File_Name; 
 	}
+	public boolean BorrowerExist(Borrower b) {
+		List<Borrower> list = Read_Borrower();
+		for(int i=0;i<list.size();i++) {
+			if(list.get(i).getStudent_Number() == b.getStudent_Number())
+				return true;
+		}
+		return false;
+	}
 	public List<Borrower> Read_Borrower()
 	{
 		List<Borrower> Bor = new ArrayList<>();

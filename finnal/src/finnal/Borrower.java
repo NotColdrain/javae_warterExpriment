@@ -26,10 +26,6 @@ public class Borrower {
 		System.out.println("Class: : "+this.Class);
 		System.out.println("*****************************************************************************");
 	}
-	public void Borrow(Borrow_list List,String Book_Name,int Borrow_time)
-	{
-		List.add(this.Student_Number,Borrow_time,Book_Name);
-	}
 	public String getName() {
 		return Name;
 	}

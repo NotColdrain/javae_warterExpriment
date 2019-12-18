@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -8,11 +9,22 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.plaf.FontUIResource;
+
+import finnal.Borrower;
+import finnal.Borrower_Read;
+import finnal.Borrower_Save;
+
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.awt.event.ActionEvent;
 
 public class RegisterUser extends JInternalFrame {
 	private JTextField nameField;
@@ -84,6 +96,50 @@ public class RegisterUser extends JInternalFrame {
 		group.add(FemalBtn);
 		
 		JButton button = new JButton("注册");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(nameField.getText().trim().equals("") ||
+						numField.getText().trim().equals("") ||
+						classField.getText().trim().equals("") ||
+						!(maleBtn.isSelected() || FemalBtn.isSelected())
+						){
+						JLabel label = new JLabel("输入框不能为空！");
+						label.setForeground(Color.RED);
+						label.setFont(new Font("幼圆", Font.BOLD, 16));
+						UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("幼圆", Font.BOLD, 15)));
+						JOptionPane.showMessageDialog(null, label);
+						return;
+					}
+				String sex;
+				if(maleBtn.isSelected())
+					sex = "男";
+				else
+					sex = "女";
+				Borrower u = new Borrower(nameField.getText().trim(),
+						sex,
+						Integer.parseInt(numField.getText().trim()),
+						Integer.parseInt(classField.getText().trim()));
+				Borrower_Read BDAO = new Borrower_Read("Borrower");
+				if(BDAO.BorrowerExist(u)) {
+					JLabel label = new JLabel("用户已经存在！");
+					label.setForeground(Color.RED);
+					label.setFont(new Font("幼圆", Font.BOLD, 16));
+					UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("幼圆", Font.BOLD, 15)));
+					JOptionPane.showMessageDialog(null, label);
+					return;
+				}
+				List<Borrower> list = BDAO.Read_Borrower();
+				list.add(u);
+				Borrower_Save s = new Borrower_Save("Borrower");
+				s.Save(list);
+				JLabel label = new JLabel("保存成功！");
+				label.setForeground(Color.RED);
+				label.setFont(new Font("幼圆", Font.BOLD, 16));
+				UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("幼圆", Font.BOLD, 15)));
+				JOptionPane.showMessageDialog(null, label);
+				return;
+			}
+		});
 		button.setBounds(150, 185, 116, 42);
 		button.setFont(new Font("微软雅黑", Font.PLAIN, 18));
 		getContentPane().setLayout(null);

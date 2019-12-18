@@ -32,7 +32,7 @@ import java.awt.event.ActionEvent;
 public class MainFrm extends JFrame {
 
 	private JPanel contentPane;
-	private String version = " Alpha 0.1";
+	private String version = " Alpha 0.2";
 	private JDesktopPane table = new JDesktopPane();
 	/**
 	 * Launch the application.
@@ -59,7 +59,7 @@ public class MainFrm extends JFrame {
 		setTitle("图书借阅系统	" + 
 				version 
 				+ "   你好! (｡•ˇ‸ˇ•｡) —— " 
-				+ u.getManagerName()
+				//+ u.getManagerName()
 				);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/image/logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,6 +113,17 @@ public class MainFrm extends JFrame {
 				table.add(bb);
 			}
 		});
+		
+		JMenuItem menuItem_3 = new JMenuItem("归还图书");
+		menuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ReturnBook bb = new ReturnBook();
+				bb.setVisible(true);
+				table.add(bb);
+			}
+		});
+		menuItem_3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
+		menu.add(menuItem_3);
 		menuItem_4.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		menu.add(menuItem_4);
 		
@@ -131,8 +142,8 @@ public class MainFrm extends JFrame {
 		About.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JLabel label = new JLabel("<html>图书借阅系统"+version
-		                + "<br> 制作组:吕烈羽、高原寒、张红江、聂致远、张传 "
-		                + "<br> 2019.12.11(C)</html>",JLabel.CENTER);
+		                + "<br> 制作组:张红江、吕烈羽、高原寒、聂致远、张传 "
+		                + "<br> 2019.12.18(C)</html>",JLabel.CENTER);
 				label.setFont(new Font("幼圆", Font.BOLD, 16));
 				UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("幼圆", Font.BOLD, 15)));
 				JOptionPane.showMessageDialog(null, label);

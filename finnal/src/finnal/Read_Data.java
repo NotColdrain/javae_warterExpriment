@@ -12,6 +12,14 @@ public class Read_Data {
 	{
 		this.File_Name=File_Name; 
 	}
+	public boolean BookExist(Book b) {
+		List<Book> list = Read_Books();
+		for(int i=0;i<list.size();i++) {
+			if(list.get(i).getISBN().equals(b.getISBN()))
+				return true;
+		}
+		return false;
+	}
 	public List<Book> Read_Books()
 	{
 		List<Book> Book_Data = new ArrayList<>();
