@@ -20,7 +20,11 @@ import finnal.Save_Data;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
-
+/**
+ * 添加图书
+ * @author LoveBeforT
+ *
+ */
 public class AddBook extends JInternalFrame {
 	private JTextField bookname;
 	private JTextField isbn;

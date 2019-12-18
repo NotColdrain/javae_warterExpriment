@@ -27,6 +27,8 @@ import java.awt.Font;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class MainFrm extends JFrame {
@@ -59,7 +61,7 @@ public class MainFrm extends JFrame {
 		setTitle("图书借阅系统	" + 
 				version 
 				+ "   你好! (｡•ˇ‸ˇ•｡) —— " 
-				//+ u.getManagerName()
+				+ u.getManagerName()
 				);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/image/logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -130,9 +132,18 @@ public class MainFrm extends JFrame {
 		JMenuItem menuItem_5 = new JMenuItem("统计数据");
 		menuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Collector c = new Collector();
-				c.setVisible(true);
-				table.add(c);
+				try {
+					Collector c = new Collector();
+					c.setVisible(true);
+					table.add(c);
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (InterruptedException e1) {
+					// TODO 自动生成的 catch 块
+					e1.printStackTrace();
+				}
 			}
 		});
 		menuItem_5.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));

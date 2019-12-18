@@ -91,8 +91,8 @@ public class LogInFrm extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("图书借阅系统");
 		lblNewLabel.setIcon(new ImageIcon(LogInFrm.class.getResource("/image/logo.png")));
-		lblNewLabel.setFont(new Font("微软雅黑", Font.BOLD, 20));
-		lblNewLabel.setBounds(135, 13, 227, 43);
+		lblNewLabel.setFont(new Font("微软雅黑", Font.BOLD, 24));
+		lblNewLabel.setBounds(115, 25, 227, 43);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("用户名:");
@@ -108,14 +108,14 @@ public class LogInFrm extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		UserNameField = new JTextField();
-		UserNameField.setFont(new Font("微软雅黑", Font.PLAIN, 18));
-		UserNameField.setBounds(167, 107, 193, 33);
+		UserNameField.setFont(new Font("微软雅黑", Font.PLAIN, 20));
+		UserNameField.setBounds(166, 101, 193, 43);
 		contentPane.add(UserNameField);
 		UserNameField.setColumns(10);
 		
 		UserNumField = new JPasswordField();
-		UserNumField.setFont(new Font("微软雅黑", Font.PLAIN, 18));
-		UserNumField.setBounds(167, 185, 193, 33);
+		UserNumField.setFont(new Font("微软雅黑", Font.PLAIN, 20));
+		UserNumField.setBounds(166, 180, 193, 43);
 		contentPane.add(UserNumField);
 		UserNumField.setColumns(10);
 		
@@ -153,8 +153,8 @@ public class LogInFrm extends JFrame {
 		});
 		UserNumField.addKeyListener(new ControlTheInput());
 		LogInBtn.setIcon(new ImageIcon(LogInFrm.class.getResource("/image/login.png")));
-		LogInBtn.setFont(new Font("微软雅黑", Font.PLAIN, 15));
-		LogInBtn.setBounds(93, 271, 113, 27);
+		LogInBtn.setFont(new Font("微软雅黑", Font.PLAIN, 18));
+		LogInBtn.setBounds(93, 271, 113, 43);
 		contentPane.add(LogInBtn);
 		
 		JButton ResetBtn = new JButton("重置");
@@ -165,8 +165,8 @@ public class LogInFrm extends JFrame {
 			}
 		});
 		ResetBtn.setIcon(new ImageIcon(LogInFrm.class.getResource("/image/delete.png")));
-		ResetBtn.setFont(new Font("微软雅黑", Font.PLAIN, 15));
-		ResetBtn.setBounds(259, 271, 113, 27);
+		ResetBtn.setFont(new Font("微软雅黑", Font.PLAIN, 18));
+		ResetBtn.setBounds(259, 271, 113, 43);
 		contentPane.add(ResetBtn);
 	}
 	private class ControlTheInput extends KeyAdapter {

@@ -23,7 +23,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
-
+/**
+ * 借阅图书
+ * @author LoveBeforT
+ *
+ */
 public class BorrowBook extends JInternalFrame {
 	private JTextField StuNum;
 	private JTextField BookIsbn;

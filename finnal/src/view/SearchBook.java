@@ -20,7 +20,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
-
+/**
+ * 查询图书
+ * @author LoveBeforT
+ *
+ */
 public class SearchBook extends JInternalFrame {
 	private JTextField ISBN;
 

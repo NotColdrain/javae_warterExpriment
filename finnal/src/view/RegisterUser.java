@@ -25,8 +25,16 @@ import finnal.Borrower_Save;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
-
+/**
+ * 注册用户
+ * @author LoveBeforT
+ *
+ */
 public class RegisterUser extends JInternalFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7219404647365272787L;
 	private JTextField nameField;
 	private JTextField numField;
 	private JTextField classField;
