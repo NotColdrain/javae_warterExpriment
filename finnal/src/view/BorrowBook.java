@@ -18,9 +18,11 @@ import finnal.Borrower;
 import finnal.Borrower_Read;
 import finnal.Read_Data;
 import finnal.Save_Data;
+import finnal.UpdateBinFile;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 import java.awt.event.ActionEvent;
 /**
@@ -145,6 +147,13 @@ public class BorrowBook extends JInternalFrame {
 				label.setFont(new Font("幼圆", Font.BOLD, 16));
 				UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("幼圆", Font.BOLD, 15)));
 				JOptionPane.showMessageDialog(null, label);
+				UpdateBinFile up = new UpdateBinFile();
+				try {
+					up.UpdateBin();
+				} catch (IOException e1) {
+					// TODO 自动生成的 catch 块
+					e1.printStackTrace();
+				}
 				return;
 			}
 		});

@@ -8,7 +8,6 @@ finnal\src\view\LogInFrm.java为登录程序
 java JDK 1.8
 
 
-
 测试账号:test
 
 密码:1234

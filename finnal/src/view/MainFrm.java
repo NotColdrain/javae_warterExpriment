@@ -13,6 +13,7 @@ import javax.swing.plaf.FontUIResource;
 
 import finnal.Borrower;
 import finnal.Manager;
+import finnal.UpdateBinFile;
 
 import java.awt.Toolkit;
 import javax.swing.JMenuBar;
@@ -66,7 +67,14 @@ public class MainFrm extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/image/logo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 780, 580);
-		
+
+		UpdateBinFile up = new UpdateBinFile();
+		try {
+			up.UpdateBin();
+		} catch (IOException e1) {
+			// TODO 自动生成的 catch 块
+			e1.printStackTrace();
+		}
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
